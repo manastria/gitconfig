@@ -1,0 +1,38 @@
+[user]
+	email = john.doe@mail.tld
+	name = jdoe
+
+[core]
+	pager = \"/usr/bin/less\" -FRXKS
+    autocrlf = false # Ne pas remplacer les fins de lignes
+	ignorecase = false
+
+[push]
+	default = current    # Pousse la branche actuelle vers une branche de même nom sur le distant
+
+[pull]
+	ff = only # Empecher `git pull` de créer secrètement des merge commits.
+
+[merge]
+	ff = no # Ne jamais faire de fusion rapide ( il suffirait de déplacer le pointeur de branche manuellement)
+
+[credential]
+	helper = cache --timeout=3600
+
+[alias]
+	# Alias classique
+	a = add
+	br = branch
+	ci = commit
+	cl = clone
+	co = checkout
+	cp = cherry-pick
+	d = diff
+	dc = diff --cached
+	diff = diff --word-diff
+	r = reset
+	st = status
+
+	hist = log --graph --decorate --format=format:'%C(red)%h%C(reset) | %C(green)%ad%C(reset) | %C(magenta)%d%C(reset) %C(reset)%s %C(blue)[%aN]%C(reset)' --date=format:'%Y-%m-%d %H:%M:%S'	# Présentation des logs
+	start = ! git init && git commit --allow-empty -m \"Initial commit\"	# Initialise un dépot avec un commit vide
+	brorph = checkout --orphan	# Créer une branche orpheline
